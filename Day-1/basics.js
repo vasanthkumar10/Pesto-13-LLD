@@ -197,22 +197,92 @@ const vasanth = {
 // }
 
 // objects can't access static method -> util fns -> access to class props
-class Human {
-  // super()  # used to call parent's constructor
-  age = 10;
+// class Human {
+//   // super()  # used to call parent's constructor
+//   age = 10;
 
-  static eat() {
-    console.log("eating");
+//   static eat() {
+//     console.log("eating");
+//   }
+
+//   get dance() {
+//     // getter -> treated as a varibale
+//     console.log("dance");
+//   }
+// }
+
+// const sachin = new Human();
+// // sachin.dance;
+// console.log(sachin.dance);
+
+// // sachin.eat();
+// Human.eat();
+
+// class MyClass {
+//   #privateProperty = "I am private";
+//   data = "dada";
+
+//   #privateMethod() {
+//     console.log("This is a private method");
+//   }
+
+//   getPrivateProperty() {
+//     return this.#privateProperty;
+//   }
+
+//   callPrivateMethod() {
+//     this.#privateMethod();
+//   }
+// }
+
+// let obj = new MyClass();
+// // console.log(obj);
+// // console.log(obj.getPrivateProperty()); // Output: I am private
+// obj.callPrivateMethod(); // Output: This is a private method
+
+class Rectangle {
+  constructor(width, height) {
+    this._width = width;
+    this._height = height;
   }
 
-  get dance() {
-    // getter -> treated as a varibale
-    console.log("dance");
+  // Getter for width
+  get width() {
+    return this._width;
+  }
+
+  // Setter for width
+  set width(value) {
+    if (value > 0) {
+      this._width = value;
+    } else {
+      console.error("Width must be a positive number");
+    }
+  }
+
+  // Getter for height
+  get height() {
+    return this._height;
+  }
+
+  // Setter for height
+  set height(value) {
+    if (value > 0) {
+      this._height = value;
+    } else {
+      console.error("Height must be a positive number");
+    }
+  }
+
+  // Getter for area
+  get area() {
+    return this._width * this._height;
   }
 }
 
-const sachin = new Human();
-// sachin.dance;
-
-// sachin.eat();
-// Human.eat();
+let rectangle = new Rectangle(10, 5);
+console.log(rectangle.width); // Output: 10
+rectangle.width = 20; // Setter called
+console.log(rectangle.width); // Output: 20
+rectangle.width = -5; // Error: Width must be a positive number
+console.log(rectangle.area); // Output: 100
