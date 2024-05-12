@@ -1,3 +1,5 @@
+const { v4 } = require("uuid");
+
 class InMemoryCache {
   constructor(id) {
     this.cache = { id };
@@ -45,7 +47,7 @@ class InMemoryCache {
 //   InMemoryCache,
 // };
 
-const cache = InMemoryCache.getInstance();
+const cache = InMemoryCache.getInstance(v4());
 
 module.exports = {
   cache,

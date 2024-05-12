@@ -52,15 +52,6 @@ class CodeEditor {
     }
   }
 
-  undo(file) {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-      const currentSnapshot = this.history[this.currentIndex];
-      const currentContent = currentSnapshot.getState();
-      file.setContent(currentContent);
-    }
-  }
-
   redo(file) {
     if (this.currentIndex < this.history.length - 1) {
       this.currentIndex++;

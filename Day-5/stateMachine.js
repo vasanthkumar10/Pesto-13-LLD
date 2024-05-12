@@ -45,7 +45,7 @@ function transition(event) {
     console.log(`Transitioning from ${currentState} to ${nextState}`);
     currentState = nextState;
   } else {
-    console.log(`Invalid transition from ${currentState} to ${nextState}`);
+    console.log(`Invalid transition from ${currentState} to ${event}`);
   }
 }
 
